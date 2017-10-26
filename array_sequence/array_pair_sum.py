@@ -1,6 +1,5 @@
 # --- coding: utf-8 ---
 
-import math
 from  array_sequence.binary_search import binary_search
 
 
