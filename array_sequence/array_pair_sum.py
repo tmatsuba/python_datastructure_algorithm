@@ -4,8 +4,10 @@ from  array_sequence.binary_search import binary_search
 
 
 def pair_sum(lis, sum):
-    u""" 引数で与えられたListの中からsumになるペアの数を返す関数
+    u""" 引数で与えられたlisの中からsumになるペアの数を返す関数
     """
+    if len(lis) < 2:
+        return
 
     sorted_list = sorted(lis)
     count = 0
@@ -17,3 +19,22 @@ def pair_sum(lis, sum):
             count += 1
 
     return count
+
+def pair_sum2(arr, k):
+    u""" 引数で与えられたarrの中からkになるペアの数を返す関数
+    """
+
+    if len(arr) < 2:
+        return
+
+    seen = set()
+    output = set()
+
+    for num in arr:
+        target = k - num
+        if target not in seen:
+            seen.add(num)
+
+        else:
+            output.add( (min(num, target), max(num, target)) )
+    return len(output)
