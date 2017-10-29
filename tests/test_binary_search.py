@@ -25,6 +25,9 @@ class TestBinarySearch(TestCase):
         self.assertEqual(binary_search(arr, 15), -1)
         self.assertEqual(binary_search(arr, -2), -1)
 
+        arr = sorted([9,8,7,6,5,4,3,2,1])
+        self.assertEqual(binary_search(arr, 9), 8)
+
 
         arr = sorted([1,2])
         self.assertEqual(binary_search(arr, 1), 0)
