@@ -12,3 +12,5 @@ class TestAnagram(TestCase):
         self.assertTrue(anagram('hi man','hi     man'))
         self.assertFalse(anagram('aabbcc','aabbc'))
         self.assertFalse(anagram('123','1 2'))
+        self.assertTrue(anagram('Aabbcc','aaBbcc'))
+        self.assertFalse(anagram('123','1234'))
