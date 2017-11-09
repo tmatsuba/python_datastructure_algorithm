@@ -6,11 +6,4 @@ def sentence_reverce(str):
     if len(str.strip()) == 0:
         return
 
-    arr = str.split()
-    rev_arr = []
-    rev = ''
-
-    for word in arr:
-        rev_arr.append(word)
-
-    return ' '.join(reversed(rev_arr))
+    return ' '.join(reversed(str.split()))
