@@ -22,8 +22,12 @@ z = Node(3)
 x.nextnode = y
 y.nextnode = z
 
+#Edge case
+v = None
+
 class TestAnagram(TestCase):
 
     def test_anagram(self):
         self.assertTrue(cycle_check(a))
         self.assertFalse(cycle_check(x))
+        self.assertFalse(cycle_check(v))

@@ -4,6 +4,9 @@ def cycle_check(node):
     u""" single linked listが循環しているかをチェックする関数
     """
 
+    if node is None:
+        return False
+
     first = node
     start = node
 
