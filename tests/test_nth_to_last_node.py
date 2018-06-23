@@ -9,11 +9,13 @@ a = Node(1)
 b = Node(2)
 c = Node(3)
 d = Node(4)
+e = Node(5)
 
 # Set up order a,b,c,d with values 1,2,3,4
 a.nextnode = b
 b.nextnode = c
 c.nextnode = d
+d.nextnode = e
 
 #Edge case
 v = None
@@ -26,12 +28,12 @@ class TestNthToLastNode(TestCase):
         self.assertEqual(b.nextnode.value, 3)
         self.assertEqual(c.nextnode.value, 4)
 
-        self.assertEqual(nth_to_last_node(a, 1), 1)
-        self.assertEqual(nth_to_last_node(a, 2), 2)
-        self.assertEqual(nth_to_last_node(a, 3), 3)
-        self.assertEqual(nth_to_last_node(a, 4), 4)
+        self.assertEqual(nth_to_last_node(1, a), e)
+        self.assertEqual(nth_to_last_node(2, a), d)
+        self.assertEqual(nth_to_last_node(3, a), c)
+        self.assertEqual(nth_to_last_node(4, a), b)
 
         with self.assertRaises(Exception):
-            nth_to_last_node(a, -1)
-            nth_to_last_node(None, 1)
-            nth_to_last_node(a, 100)
+            nth_to_last_node(-1, a)
+            nth_to_last_node(1, None)
+            nth_to_last_node(100, a)

@@ -1,8 +1,8 @@
 # --- coding: utf-8 ---
 from linked_list.sinele_linked_list import Node
 
-def nth_to_last_node(head, n):
-    u""" 与えられたLinked List のn番目を取得する。
+def nth_to_last_node(n , head):
+    u""" 与えられたLinked List の後ろからn番目を取得する。
     """
     if n <= 0:
         raise Exception("n must not negative")
@@ -12,12 +12,13 @@ def nth_to_last_node(head, n):
 
     cur = head
     cnt = 0
+    lis = []
 
-    while n - 1 > 0 and cur is not None:
+    while cur is not None:
+        lis.append(cur)
         cur = cur.nextnode
-        n -= 1
 
-    if cur is None:
+    if len(lis) < n:
         raise Exception("index out bounds")
 
-    return cur.value
+    return lis[len(lis) - n]
