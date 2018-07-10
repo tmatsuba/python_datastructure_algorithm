@@ -1,10 +1,10 @@
 # --- coding: utf-8 ---
 
 from unittest import TestCase
-from tree.binary_search_tree import binary_search_tree_check
-from tree.binary_search_tree import Tree
+from tree.binary_search_tree import binary_search_tree_check, levelOrderPrint, levelOrderPrint2
+from tree.binary_search_tree import Tree, Node
 
-class TestBinarySearch(TestCase):
+class TestTree(TestCase):
 
     def test_binary_search_check(self):
         a = Tree(1, 'a')
@@ -38,3 +38,21 @@ class TestBinarySearch(TestCase):
         root.left = Tree(5, "Five")
         root.left.right = Tree(15, "Fifteen")
         self.assertFalse(binary_search_tree_check(root))
+
+    def test_level_order_print(self):
+        a = Node(1)
+        b = Node(2)
+        c = Node(3)
+        d = Node(4)
+        e = Node(5)
+        f = Node(6)
+        d.left = b
+        b.left = a
+        b.right = c
+        d.right = e
+        e.right = f
+
+        assert_str = '4 \n' + '2 5 \n' + '1 3 6 \n'
+
+        self.assertEqual(levelOrderPrint(d), assert_str)
+        self.assertEqual(levelOrderPrint2(d), assert_str)ma
