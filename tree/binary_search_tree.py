@@ -104,3 +104,22 @@ def levelOrderPrint2(tree):
             ret +=  '\n'
             currentCount, nextCount = nextCount, currentCount
     return ret
+
+def trimBST(root, min_val, max_val):
+    u"""Binary Search Tree(BST)を最大、最小値以内でtrimし、BSTを返す関数
+    """
+
+    if not root:
+        return None
+
+    if min_val <= root.val <= max_val:
+        root.left = trimBST(root.left, min_val, max_val)
+        root.right = trimBST(root.right, min_val, max_val)
+
+    if root.val < min_val:
+        return trimBST(root.right, min_val, max_val)
+
+    if root.val > max_val:
+        return trimBST(root.left, min_val, max_val)
+
+    return root
